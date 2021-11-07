@@ -85,6 +85,11 @@ app.post('/addTask', (req, res) => {
   setTimeout(() => { res.json(tasks) }, 1000)
 })
 
+app.post('/editTask', (req, res) => {
+  tasks.splice((tasks.findIndex(item => item.id == req.body.id)), 1, req.body)
+  setTimeout(() => { res.json(tasks) }, 1000)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
